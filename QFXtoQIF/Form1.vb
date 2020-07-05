@@ -51,6 +51,7 @@ Public Class Form1
     Private Sub btnSaveQIF_Click(sender As Object, e As EventArgs) Handles btnSaveQIF.Click
         Dim sFileDlg As New SaveFileDialog
         sFileDlg.Filter = "QIF files (*.qif)|*.qif"
+        sFileDlg.FileName = Path.GetFileNameWithoutExtension(TextBoxInputFile.Text)
         If sFileDlg.ShowDialog = DialogResult.OK Then
             RichTextBoxResult.SaveFile(sFileDlg.FileName, RichTextBoxStreamType.PlainText)
         End If
